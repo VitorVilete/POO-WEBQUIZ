@@ -3,9 +3,9 @@ package com.domain.quiz;
 import java.util.ArrayList;
 
 public class Quiz {
-    private static int testsCount = 0;
-    private static double testsGradeSum = 0.0;
-    private static double lastGrade = 0.0;
+    private int testsCount = 0;
+    private double testsGradeSum = 0.0;
+    private double lastGrade = 0.0;
     private static ArrayList<Question> test;
     
     public static ArrayList<Question> getTest(){
@@ -27,7 +27,7 @@ public class Quiz {
         return test;
     }
     
-    public static double validateTest(String userAnswers[]){
+    public double validateTest(String userAnswers[]){
         int count = 0;
         for(int i=0; i<test.size(); i++){
             if(test.get(i).getAnswer().equals(userAnswers[i])){
@@ -35,15 +35,15 @@ public class Quiz {
             }
         }
         double grade = (double)count / (double)test.size();
-        Quiz.lastGrade = grade;
-        Quiz.testsGradeSum += grade;
-        Quiz.testsCount++;
+        lastGrade = grade;
+        testsGradeSum += grade;
+        testsCount++;
         return grade;
     }
-    public static double getLastGrade(){
-        return Quiz.lastGrade;
+    public double getLastGrade(){
+        return lastGrade;
     }
-    public static double getGradeAverage(){
-        return Quiz.testsGradeSum / (double)Quiz.testsCount;
+    public double getGradeAverage(){
+        return testsGradeSum / (double)testsCount;
     }
 }

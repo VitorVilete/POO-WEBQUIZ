@@ -1,10 +1,23 @@
+<%@page import="com.domain.quiz.User"%>
 <%@page import="com.domain.quiz.Database"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    if(request.getParameter("login")!=null){        
+    /*if(request.getParameter("login")!=null){        
         response.sendRedirect("index.jsp");
         
+    }*/
+    if(request.getParameter("login")!=null && request.getParameter("user")!=null){        
+        String userName = request.getParameter("user");
+        for(int i = 0; i < Database.getUsers().size(); i++){
+            //Checa se o usuário já existe. Se não, cria um novo usuário e o adiciona ao final do arrayList
+            if (userName == Database.getUsers().get(i).getUserName()) {
+            response.sendRedirect("index.jsp?user="+userName+"");
+            }        
+        }              
+        User myUser = new User(userName);
+        Database.getUsers().add(myUser);
+        response.sendRedirect("index.jsp?user="+userName+"");
     }
 %>
 

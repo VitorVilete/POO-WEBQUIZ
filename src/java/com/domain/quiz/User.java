@@ -10,7 +10,20 @@ package com.domain.quiz;
  * @author Vilete
  */
 public class User {
-    public String userName;
-    public Quiz myQuiz;
+    private String userName;
+    private Quiz myQuiz;
+    
+    public User(String user){
+        userName = user; 
+        myQuiz = new Quiz();
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public Quiz getMyQuiz() {
+        return myQuiz;
+    }
     
 }

@@ -1,18 +1,24 @@
 <%@page import="com.domain.quiz.Quiz"%>
 <%@page import="com.domain.quiz.Question"%>
+<%@page import="com.domain.quiz.User"%>
+<%@page import="com.domain.quiz.Database"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-    if(request.getParameter("test")!=null){
-        Quiz.validateTest(new String[]{
+    User myUser = Database.findUser(request.getParameter("user"));
+    if(request.getParameter("test")!=null){        
+        Quiz myUserQuiz = myUser.getMyQuiz();        
+        myUserQuiz.validateTest(new String[]{
             request.getParameter("0"),
             request.getParameter("1"),
             request.getParameter("2"),
             request.getParameter("3")
         });
-        response.sendRedirect("index.jsp");
-    }
+        response.sendRedirect("index.jsp?user="+myUser.getUserName()+"");
+    } 
+
+    
 %>
 <html>
     <head>
@@ -34,11 +40,12 @@
         
         <form>
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+            <input type="hidden" name="user" value='<%= myUser.getUserName()%>'/>
 
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <div class="jumbotron" style="height: 400px; padding-top: 12%">                    
-                    <h2 align="center">Olá, (Usuário)</h2>
+                    <h2 align="center">Olá, <%= myUser.getUserName() %></h2>
                     <a href="#myCarousel" role="button" data-slide="next"><button type="button" class="btn btn-primary center-block btn-lg active">INICIAR TESTE</button></a>
                 </div>
                 <hr/>

@@ -16,5 +16,14 @@ public class Database {
     
     public static ArrayList<User> getUsers(){
         return users;
-    }  
+    }
+    
+    public static User findUser(String userName){        
+        for(int i = 0; i < Database.getUsers().size(); i++){
+            if (userName.equals(Database.getUsers().get(i).getUserName())) {
+            return Database.getUsers().get(i);
+            }
+        }
+        return null;
+    }
 }
