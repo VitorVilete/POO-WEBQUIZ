@@ -56,12 +56,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <hr/>\n");
       out.write("        <h3>Última nota:</h3>\n");
       out.write("        ");
-      out.print( Quiz.getLastGrade() );
-      out.write("\n");
+      out.print( 100.0*Quiz.getLastGrade() );
+      out.write("%\n");
       out.write("        <h3>Média</h3>\n");
       out.write("        ");
-      out.print( Quiz.getGradeAverage() );
-      out.write("\n");
+      out.print( 100.0*Quiz.getGradeAverage() );
+      out.write("%\n");
+      out.write("        <hr/>\n");
       out.write("        <a href=\"test.jsp\">\n");
       out.write("            <button>Iniciar Teste</button>\n");
       out.write("        </a>\n");
