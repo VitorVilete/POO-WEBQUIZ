@@ -12,20 +12,30 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Índice: WebQuiz</title>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <title>WebQuiz - Login</title>
     </head>
     <body>
-        <h1>WebQuiz</h1>
-        <h2>Login</h2>
-        <hr/>
-        <h3>Usuário</h3>
-        <form>
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <h1 class="text-center login-title">Digite o seu usuário para começar o teste!</h1>
+                
+                <div class="account-wall">
+                    <img class="profile-img" src="./resources/img/login.png" alt="">
+                    <form class="form-signin">
+                        <input type="text" id="user" name="user" class="form-control" placeholder="Usuário" required autofocus><br>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit" name="login" value="Entrar"><br>
+                        <label class="pull-left"><input type="checkbox" value="remember-me"> Lembrar</label>
+                        <a href="#" class="pull-right">Ajuda? </a><span class="clearfix"></span>
+                    </form>
+                </div>
             
-        <input type="text" id="user" name="user"/>
-        
-        <input type="submit" name="login">
-        
-        </form>
-        
+                <a href="#" class="text-center new-account">Criar uma conta</a>
+            </div>
+        </div>
+    </div>
+             
     </body>
 </html>
